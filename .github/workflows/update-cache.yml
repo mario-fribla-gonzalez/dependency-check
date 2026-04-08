@@ -1,0 +1,39 @@
+name: update-cache
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * 0' # Every Sunday at 03:00 UTC
+
+jobs:
+  update-cache:
+    runs-on:
+      group: Default
+      labels: ${{ matrix.runner_label }}
+    strategy:
+      matrix:
+        runner_label: [self-hosted]
+        iteration: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    steps:
+      - name: Cache Dependency-Check data restore
+        id: cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ~/.dependency-check
+          key: dependency-check-data
+      - name: Dependency Check
+        uses: mario-fribla-gonzalez/dependency-check@main
+        continue-on-error: true
+        env:
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+        with:
+          version: '12.1.0'
+          project: ${{ github.event.repository.name }}
+          path: '.'
+          out: reports
+      - name: Cache Dependency-Check data save
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: ~/.dependency-check
+          key: dependency-check-data

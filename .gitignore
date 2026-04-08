@@ -1,0 +1,11 @@
+*
+!**/
+!.gitignore
+!*.yml
+!*.sh
+!*.ps1
+!*.j2
+!*.js
+!*.json
+!*.md
+node_modules/
