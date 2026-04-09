@@ -54,25 +54,6 @@ jobs:
           NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
 ```
 
-## Entradas
-
-| Entrada | Descripción | Requerido | Por Defecto |
-|---------|-------------|-----------|-------------|
-| `project` | Nombre del proyecto para el escaneo | No | `${{ github.event.repository.name }}` |
-| `path` | Ruta a escanear para dependencias | No | `.` |
-| `args` | Argumentos adicionales para dependency-check | No | `--disableCentral --failOnCVSS 7 --enableRetired --noupdate` |
-| `version` | Versión de Dependency-Check a usar | No | `12.1.0` |
-| `format` | Formato(s) de reporte, separados por comas | No | `XML,JSON,HTML` |
-| `out` | Directorio de salida para reportes | No | `reports` |
-| `suppression-url` | URL para descargar archivo de supresión NVD para falsos positivos | No | - |
-| `workdir` | Directorio de trabajo desde donde ejecutar el escaneo | No | `.` |
-
-## Variables de Entorno
-
-| Variable | Descripción | Requerido |
-|----------|-------------|-----------|
-| `NVD_API_KEY` | Clave API NVD para datos de vulnerabilidades mejorados | No |
-
 ## Formatos de Reporte
 
 La action soporta múltiples formatos de salida:
@@ -242,16 +223,12 @@ args: '--jvmArgs "-Xmx4g"'
 4. Prueba exhaustivamente
 5. Envía un pull request
 
-## Licencia
-
-Este proyecto es propiedad de **BCI Seguros** y está destinado para uso interno exclusivo de la empresa. Todos los derechos reservados.
-
-**Uso Restringido**: Este software y su documentación son confidenciales y están protegidos por derechos de autor. El acceso, uso, modificación y distribución están restringidos únicamente al personal autorizado de BCI Seguros.
-
-Para consultas sobre licenciamiento o permisos de uso, contacta al equipo de Tecnología de BCI Seguros.
 
 ## Proyectos Relacionados
 
 - [OWASP Dependency Check](https://owasp.org/www-project-dependency-check/)
 - [GitHub Security Advisories](https://github.com/advisories)
 - [Snyk](https://snyk.io/)
+
+---
+DevOps Mario Fribla Gonzalez
