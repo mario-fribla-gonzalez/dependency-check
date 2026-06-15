@@ -1,9 +1,9 @@
 name: update-cache
 
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 3 * * 0' # Every Sunday at 03:00 UTC
+  #workflow_dispatch:
+  #schedule:
+  #  - cron: '0 3 * * 0' # Every Sunday at 03:00 UTC
 
 jobs:
   update-cache:
