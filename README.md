@@ -231,4 +231,5 @@ args: '--jvmArgs "-Xmx4g"'
 - [Snyk](https://snyk.io/)
 
 ---
-DevOps Mario Fribla Gonzalez
+Mario Fribla
+***DevOps***
